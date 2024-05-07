@@ -1,0 +1,25 @@
+/node_modules
+/public/hot
+/public/storage
+/public/js
+/public/css
+/storage/*.key
+/vendor
+!.env.example
+.env
+.vscode
+.idea
+
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+###> phpunit/phpunit ###
+/.phpunit.result.cache

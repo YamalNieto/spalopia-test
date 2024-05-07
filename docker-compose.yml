@@ -1,0 +1,53 @@
+version: '3.7'
+
+services:
+  php:
+    container_name: spalopia_test_php
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    restart: unless-stopped
+    tty: true
+    env_file:
+      - .env
+    volumes:
+      - .:/app:cached
+    networks:
+      - spalopia_test_network
+
+  caddy:
+    image: caddy:2-alpine
+    depends_on:
+      - php
+    restart: unless-stopped
+    volumes:
+      - ./docker/etc/caddy/Caddyfile:/etc/caddy/Caddyfile
+      - .:/app:cached
+    ports:
+      - "8080:8080"
+    networks:
+      - spalopia_test_network
+
+  postgres:
+    container_name: spalopia_test_postgres
+    image: postgres:16-alpine
+    env_file:
+      - .env
+    volumes:
+      - spalopia_test_postgres_volume:/var/lib/postgresql/data:rw
+    ports:
+      - "54320:5432"
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      spalopia_test_network:
+
+networks:
+  spalopia_test_network:
+    driver: "bridge"
+
+volumes:
+  spalopia_test_postgres_volume:
