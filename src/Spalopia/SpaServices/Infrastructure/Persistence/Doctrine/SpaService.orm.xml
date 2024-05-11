@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="Spalopia\SpaServices\Domain\SpaService" table="spa_services">
+        <id name="id" type="spaservice_id" column="id" length="36" />
+
+        <embedded name="name" class="Spalopia\SpaServices\Domain\SpaServiceName" use-column-prefix="false" />
+        <embedded name="price" class="Spalopia\SpaServices\Domain\SpaServicePrice" use-column-prefix="false" />
+    </entity>
+
+</doctrine-mapping>
