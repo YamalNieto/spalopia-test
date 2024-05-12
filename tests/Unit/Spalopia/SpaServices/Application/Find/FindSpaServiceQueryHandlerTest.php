@@ -9,6 +9,7 @@ use Spalopia\SpaServices\Application\Find\FindSpaServiceQueryHandler;
 use Spalopia\SpaServices\Application\Find\SpaServiceFinder;
 use Spalopia\SpaServices\Domain\SpaServiceNotExist;
 use Spalopia\SpaServices\Domain\SpaServiceRepository;
+use Spalopia\Tests\Unit\Spalopia\SpaServices\Application\SpaServiceResponseMother;
 use Spalopia\Tests\Unit\Spalopia\SpaServices\Domain\SpaServiceIdMother;
 use Spalopia\Tests\Unit\Spalopia\SpaServices\Domain\SpaServiceMother;
 

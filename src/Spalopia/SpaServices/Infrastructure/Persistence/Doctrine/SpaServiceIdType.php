@@ -9,6 +9,6 @@ final class SpaServiceIdType extends UuidType
 {
     protected function typeClassName(): string
     {
-        return 'spa_service_id';
+        return SpaServiceId::class;
     }
 }

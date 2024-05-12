@@ -29,4 +29,9 @@ final class DoctrineSpaServiceRepository implements SpaServiceRepository
     {
         return $this->repository->find($id);
     }
+
+    public function searchAll(): array
+    {
+        return $this->repository->findAll();
+    }
 }

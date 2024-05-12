@@ -1,8 +1,8 @@
 <?php
 
-namespace Spalopia\Tests\Unit\Spalopia\SpaServices\Application\Find;
+namespace Spalopia\Tests\Unit\Spalopia\SpaServices\Application;
 
-use Spalopia\SpaServices\Application\Find\SpaServiceResponse;
+use Spalopia\SpaServices\Application\SpaServiceResponse;
 use Spalopia\SpaServices\Domain\SpaService;
 use Spalopia\Tests\Unit\Spalopia\SpaServices\Domain\SpaServiceMother;
 

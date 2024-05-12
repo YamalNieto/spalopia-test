@@ -18,3 +18,9 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    _instanceof:
+        Spalopia\Shared\Domain\Bus\Query\QueryHandler:
+            tags: ['spalopia.query_handler']
+
+    Spalopia\Shared\Infrastructure\Bus\Query\InMemorySymfonyQueryBus:
+        arguments: [!tagged spalopia.query_handler]

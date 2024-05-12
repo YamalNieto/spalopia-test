@@ -2,10 +2,11 @@
 
 namespace Spalopia\SpaServices\Application\Find;
 
+use Spalopia\SpaServices\Application\SpaServiceResponse;
 use Spalopia\Shared\Domain\Bus\Query\QueryHandler;
 use Spalopia\SpaServices\Domain\SpaServiceId;
 
-final class FindSpaServiceQueryHandler implements QueryHandler
+final readonly class FindSpaServiceQueryHandler implements QueryHandler
 {
     public function __construct(private SpaServiceFinder $finder)
     {

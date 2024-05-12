@@ -1,6 +1,6 @@
 <?php
 
-namespace Spalopia\SpaServices\Application\Find;
+namespace Spalopia\SpaServices\Application;
 
 use Spalopia\Shared\Domain\Bus\Query\Response;
 

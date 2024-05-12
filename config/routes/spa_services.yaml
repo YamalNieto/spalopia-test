@@ -1,0 +1,4 @@
+spa-services_get:
+  path: /spa-services
+  controller: Spalopia\SpaServices\Infrastructure\Http\Controller\GetSpaServicesController
+  methods:  [GET]
