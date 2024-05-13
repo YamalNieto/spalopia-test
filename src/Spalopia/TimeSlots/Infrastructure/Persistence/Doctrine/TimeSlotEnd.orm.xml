@@ -5,7 +5,7 @@
                           https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
     <embeddable name="Spalopia\TimeSlots\Domain\TimeSlotEnd">
-        <field name="value" type="string" column="end" />
+        <field name="value" type="string" column="endTime" />
     </embeddable>
 
 </doctrine-mapping>

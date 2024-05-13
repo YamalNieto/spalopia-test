@@ -1,0 +1,9 @@
+services:
+    _instanceof:
+        Spalopia\TimeSlots\Infrastructure\Persistence\DataFixtures\TimeSlotFixtures:
+            tags: ['doctrine.fixtures.orm']
+
+        Spalopia\TimeSlots\Infrastructure\Http\Controller\:
+            resource: '../Http/Controller/'
+            tags: [ 'controller.service_arguments' ]
+            public: true

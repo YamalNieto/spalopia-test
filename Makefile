@@ -41,4 +41,7 @@ tests: ## Executes tests
 
 .PHONY: migrations
 migrations: ## Execute pending doctrine migrations
-	@docker exec -it -u${USER} ${PHP_CONTAINER} php bin/console doctrine:migrations:migrate												;
+	@docker exec -it -u${USER} ${PHP_CONTAINER} php bin/console doctrine:migrations:migrate;
+
+fixtures:
+	@docker exec -it -u${USER} ${PHP_CONTAINER} php bin/console doctrine:fixtures:load;

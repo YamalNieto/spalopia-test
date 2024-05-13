@@ -12,7 +12,7 @@ final readonly class AllSpaServicesSearcher
 {
     public function __construct(private SpaServiceRepository $repository) {}
 
-    public function searchAll(): SpaServicesResponse
+    public function __invoke(): SpaServicesResponse
     {
         return new SpaServicesResponse(...map($this->toResponse(), $this->repository->searchAll()));
     }

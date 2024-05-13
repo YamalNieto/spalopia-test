@@ -6,25 +6,34 @@ use DateTimeImmutable;
 
 final readonly class TimeSlotDay
 {
-    public function __construct(private DateTimeImmutable $value)
+    private string $value;
+
+    public function __construct(private DateTimeImmutable $day)
     {
-        if (!$this->checkDate($value)) {
+        if (!$this->checkDate($day)) {
             throw new InvalidTimeSlotDayException('The day must be from today to the future.');
         }
+
+        $this->value = $this->__toString();
     }
 
-    public function value(): DateTimeImmutable
+    public function value(): string
     {
         return $this->value;
     }
 
-    public function __toString(): string
+    public function day(): DateTimeImmutable
     {
-        return $this->value->format('Y-m-d');
+        return $this->day;
     }
 
-    private function checkDate(DateTimeImmutable $value): bool
+    public function __toString(): string
     {
-        return $value >= new DateTimeImmutable('now');
+        return $this->day->format('Y-m-d');
+    }
+
+    private function checkDate(DateTimeImmutable $day): bool
+    {
+        return $day->format('Y-m-d') >= (new DateTimeImmutable('now'))->format('Y-m-d');
     }
 }

@@ -2,9 +2,8 @@
 
 namespace Spalopia\SpaServices\Application\SearchAll;
 
-use Spalopia\SpaServices\Application\SearchAll\AllSpaServicesSearcher;
-use Spalopia\SpaServices\Application\SpaServicesResponse;
 use Spalopia\Shared\Domain\Bus\Query\QueryHandler;
+use Spalopia\SpaServices\Application\SpaServicesResponse;
 
 final readonly class SearchAllSpaServiceQueryHandler implements QueryHandler
 {
@@ -12,6 +11,6 @@ final readonly class SearchAllSpaServiceQueryHandler implements QueryHandler
 
     public function __invoke(SearchAllSpaServiceQuery $query): SpaServicesResponse
     {
-        return $this->searcher->searchAll();
+        return $this->searcher->__invoke();
     }
 }

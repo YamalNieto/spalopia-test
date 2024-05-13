@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class GetSpaServicesController extends AbstractController
 {
-    public function __construct(private readonly QueryBus $queryBus)
+    public function __construct(private QueryBus $queryBus)
     {
     }
 

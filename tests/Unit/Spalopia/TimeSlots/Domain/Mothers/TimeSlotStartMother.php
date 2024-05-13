@@ -9,6 +9,8 @@ final class TimeSlotStartMother
 {
     public static function create(?string $value = null): TimeSlotStart
     {
-        return new TimeSlotStart($value ?? MotherCreator::random()->time('H:i'));
+        $start = $value ?? MotherCreator::random()->dateTimeBetween('09:00', '11:00')->format('H:i');
+
+        return new TimeSlotStart($value ?? $start);
     }
 }

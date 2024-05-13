@@ -10,24 +10,26 @@ final readonly class TimeSlot
         private TimeSlotId $id,
         private TimeSlotSpaServiceId $serviceId,
         private TimeSlotDay $day,
-        private TimeSlotStart $start,
-        private TimeSlotEnd $end,
-        private TimeSlotAvailable $available) {}
+        private TimeSlotStart $startTime,
+        private TimeSlotEnd $endTime,
+        private TimeSlotAvailable $available
+    ) {}
 
     public static function create(
         ?TimeSlotId $id,
         TimeSlotSpaServiceId $serviceId,
         TimeSlotDay $day,
-        TimeSlotStart $start,
-        TimeSlotEnd $end,
-        TimeSlotAvailable $available): self
+        TimeSlotStart $startTime,
+        TimeSlotEnd $endTime,
+        TimeSlotAvailable $available
+    ): self
     {
-        if (!self::checkTimeRange($start, $end))
+        if (!self::checkTimeRange($startTime, $endTime))
         {
             throw new InvalidTimeSlotRangeException('The start must be before the end');
         }
 
-        return new self($id ?? TimeSlotId::random(), $serviceId, $day, $start, $end, $available);
+        return new self($id ?? TimeSlotId::random(), $serviceId, $day, $startTime, $endTime, $available);
     }
 
     public function id(): TimeSlotId
@@ -47,12 +49,12 @@ final readonly class TimeSlot
 
     public function start(): TimeSlotStart
     {
-        return $this->start;
+        return $this->startTime;
     }
 
     public function end(): TimeSlotEnd
     {
-        return $this->end;
+        return $this->endTime;
     }
 
     public function isAvailable(): TimeSlotAvailable

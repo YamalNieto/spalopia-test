@@ -5,7 +5,7 @@
                           https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
     <embeddable name="Spalopia\TimeSlots\Domain\TimeSlotDay">
-        <field name="__toString" type="string" column="day" />
+        <field name="value" type="string" column="day" />
     </embeddable>
 
 </doctrine-mapping>

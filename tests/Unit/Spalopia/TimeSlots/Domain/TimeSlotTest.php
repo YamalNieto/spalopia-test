@@ -15,10 +15,20 @@ final class TimeSlotTest extends TestCase
     {
         $timeSlot = TimeSlotMother::create();
 
-        $this->assertEquals($timeSlot, TimeSlot::create($timeSlot->id(), $timeSlot->serviceId(), $timeSlot->day(), $timeSlot->start(), $timeSlot->end(), $timeSlot->isAvailable()));
+        $this->assertEquals(
+            $timeSlot,
+            TimeSlot::create(
+                $timeSlot->id(),
+                $timeSlot->serviceId(),
+                $timeSlot->day(),
+                $timeSlot->start(),
+                $timeSlot->end(),
+                $timeSlot->isAvailable()
+            )
+        );
     }
 
-    public function test(): void
+    public function testShouldThrowExceptionOnStartTimeAfterEndTime(): void
     {
         $this->expectException(InvalidTimeSlotRangeException::class);
         TimeSlotMother::create(
@@ -26,5 +36,4 @@ final class TimeSlotTest extends TestCase
             end: TimeSlotEndMother::create('08:00'),
         );
     }
-
 }

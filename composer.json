@@ -24,6 +24,7 @@
         "symfony/yaml": "5.4.*"
     },
     "require-dev": {
+        "doctrine/doctrine-fixtures-bundle": "^3.6",
         "fakerphp/faker": "^1.21",
         "mockery/mockery": "^1.5",
         "phpunit/phpunit": "^9.5",
@@ -34,7 +35,8 @@
         "symfony/phpunit-bridge": "^7.0",
         "symfony/stopwatch": "5.4.*",
         "symfony/web-profiler-bundle": "5.4.*",
-        "twig/twig": "^3.5"
+        "twig/twig": "^3.5",
+        "zenstruck/foundry": "^1.37"
     },
     "config": {
         "allow-plugins": {

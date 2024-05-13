@@ -25,8 +25,8 @@ final class Version20240513122218 extends AbstractMigration
                 id VARCHAR(36) NOT NULL, 
                 service_id VARCHAR(36) NOT NULL, 
                 day VARCHAR(10) NOT NULL, 
-                start VARCHAR(5) NOT NULL, 
-                "end" VARCHAR(5) NOT NULL, 
+                startTime VARCHAR(5) NOT NULL, 
+                endTime VARCHAR(5) NOT NULL, 
                 available BOOLEAN NOT NULL, 
                 PRIMARY KEY(id)
            )

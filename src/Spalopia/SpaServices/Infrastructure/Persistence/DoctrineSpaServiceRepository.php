@@ -7,6 +7,8 @@ use Doctrine\ORM\EntityRepository;
 use Spalopia\SpaServices\Domain\SpaService;
 use Spalopia\SpaServices\Domain\SpaServiceId;
 use Spalopia\SpaServices\Domain\SpaServiceRepository;
+use Spalopia\TimeSlots\Domain\TimeSlot;
+use Spalopia\TimeSlots\Domain\TimeSlotDay;
 
 final class DoctrineSpaServiceRepository implements SpaServiceRepository
 {
@@ -33,5 +35,20 @@ final class DoctrineSpaServiceRepository implements SpaServiceRepository
     public function searchAll(): array
     {
         return $this->repository->findAll();
+    }
+
+    public function searchTimeSlots(SpaServiceId $id, TimeSlotDay $day): array
+    {
+        return $this->repository->createQueryBuilder('s')
+            ->select('t')
+            ->from(TimeSlot::class, 't')
+            ->andWhere('t.serviceId = :serviceId')
+            ->setParameter('serviceId', $id->value())
+            ->andWhere('t.available.value = :available')
+            ->setParameter('available', true)
+            ->andWhere('t.day.value = :day')
+            ->setParameter('day', $day->value())
+            ->getQuery()
+            ->getResult();
     }
 }

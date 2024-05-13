@@ -1,5 +1,0 @@
-services:
-  Spalopia\SpaServices\Infrastructure\Http\Controller\:
-    resource: '../Http/Controller/'
-    tags: ['controller.service_arguments']
-    public: true

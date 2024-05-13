@@ -7,11 +7,14 @@
     <entity name="Spalopia\TimeSlots\Domain\TimeSlot" table="timeslots">
         <id name="id" type="timeslot_id" column="id" length="36" />
 
-        <field name="serviceId" type="spaservice_id" column="service_id" />
+        <field name="serviceId" type="timeslot_spaservice_id" column="service_id" />
 
+<!--        <many-to-one field="service" target-entity="Spalopia\SpaServices\Domain\SpaService" inversed-by="timeSlots">-->
+<!--            <join-column name="service_id" referenced-column-name="id" />-->
+<!--        </many-to-one>-->
         <embedded name="day" class="Spalopia\TimeSlots\Domain\TimeSlotDay" use-column-prefix="false" />
-        <embedded name="start" class="Spalopia\TimeSlots\Domain\TimeSlotStart" use-column-prefix="false" />
-        <embedded name="end" class="Spalopia\TimeSlots\Domain\TimeSlotEnd" use-column-prefix="false" />
+        <embedded name="startTime" class="Spalopia\TimeSlots\Domain\TimeSlotStart" use-column-prefix="false" />
+        <embedded name="endTime" class="Spalopia\TimeSlots\Domain\TimeSlotEnd" use-column-prefix="false" />
         <embedded name="available" class="Spalopia\TimeSlots\Domain\TimeSlotAvailable" use-column-prefix="false" />
     </entity>
 
