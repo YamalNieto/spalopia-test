@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctrine-mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="Spalopia\TimeSlots\Domain\TimeSlot" table="timeslots">
+        <id name="id" type="timeslot_id" column="id" length="36" />
+
+        <field name="serviceId" type="spaservice_id" column="service_id" />
+
+        <embedded name="day" class="Spalopia\TimeSlots\Domain\TimeSlotDay" use-column-prefix="false" />
+        <embedded name="start" class="Spalopia\TimeSlots\Domain\TimeSlotStart" use-column-prefix="false" />
+        <embedded name="end" class="Spalopia\TimeSlots\Domain\TimeSlotEnd" use-column-prefix="false" />
+        <embedded name="available" class="Spalopia\TimeSlots\Domain\TimeSlotAvailable" use-column-prefix="false" />
+    </entity>
+
+</doctrine-mapping>

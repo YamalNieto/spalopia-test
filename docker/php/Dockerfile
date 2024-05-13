@@ -3,7 +3,7 @@ FROM php:8.2-fpm-alpine
 WORKDIR /app
 
 RUN apk --update upgrade \
-    && apk add --no-cache autoconf automake make gcc g++ git bash icu-dev libzip-dev linux-headers
+    && apk add --no-cache autoconf automake make gcc g++ git bash icu-dev libzip-dev linux-headers php82-xml
 
 RUN pecl install apcu-5.1.23 && pecl install xdebug-3.3.0
 
