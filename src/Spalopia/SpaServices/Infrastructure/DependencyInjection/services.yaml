@@ -1,9 +1,9 @@
 services:
+    Spalopia\SpaServices\Infrastructure\Http\Controller\:
+        resource: '../Http/Controller/'
+        tags: [ 'controller.service_arguments' ]
+        public: true
+
     _instanceof:
         Spalopia\SpaServices\Infrastructure\Persistence\DataFixtures\SpaServiceFixtures:
             tags: ['doctrine.fixtures.orm']
-
-        Spalopia\SpaServices\Infrastructure\Http\Controller\:
-            resource: '../Http/Controller/'
-            tags: [ 'controller.service_arguments' ]
-            public: true

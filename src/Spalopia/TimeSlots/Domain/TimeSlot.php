@@ -4,14 +4,14 @@ namespace Spalopia\TimeSlots\Domain;
 
 use DateTimeImmutable;
 
-final readonly class TimeSlot
+final class TimeSlot
 {
     private function __construct(
-        private TimeSlotId $id,
-        private TimeSlotSpaServiceId $serviceId,
-        private TimeSlotDay $day,
-        private TimeSlotStart $startTime,
-        private TimeSlotEnd $endTime,
+        private readonly TimeSlotId $id,
+        private readonly TimeSlotSpaServiceId $serviceId,
+        private readonly TimeSlotDay $day,
+        private readonly TimeSlotStart $startTime,
+        private readonly TimeSlotEnd $endTime,
         private TimeSlotAvailable $available
     ) {}
 
@@ -60,6 +60,11 @@ final readonly class TimeSlot
     public function isAvailable(): TimeSlotAvailable
     {
         return $this->available;
+    }
+
+    public function close(): void
+    {
+        $this->available = new TimeSlotAvailable(false);
     }
 
     private static function checkTimeRange(TimeSlotStart $start, TimeSlotEnd $end): bool

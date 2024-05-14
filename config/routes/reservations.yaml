@@ -1,0 +1,4 @@
+reservations_get:
+  path: /reservations
+  controller: Spalopia\Reservations\Infrastructure\Http\Controller\PostReservationsController
+  methods: [POST]

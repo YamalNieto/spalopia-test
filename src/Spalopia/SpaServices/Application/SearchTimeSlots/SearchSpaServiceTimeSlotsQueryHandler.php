@@ -17,7 +17,7 @@ final readonly class SearchSpaServiceTimeSlotsQueryHandler implements QueryHandl
     {
         $id = new SpaServiceId($query->id());
 
-        $date = new TimeSlotDay(\DateTimeImmutable::createFromFormat('Y-m-d', $query->day()));
+        $date = TimeSlotDay::fromString($query->day());
 
         return $this->searcher->__invoke($id, $date);
     }

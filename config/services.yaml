@@ -22,5 +22,11 @@ services:
         Spalopia\Shared\Domain\Bus\Query\QueryHandler:
             tags: ['spalopia.query_handler']
 
+        Spalopia\Shared\Domain\Bus\Command\CommandHandler:
+            tags: [ 'spalopia.command_handler' ]
+
     Spalopia\Shared\Infrastructure\Bus\Query\InMemorySymfonyQueryBus:
         arguments: [!tagged spalopia.query_handler]
+
+    Spalopia\Shared\Infrastructure\Bus\Command\InMemorySymfonyCommandBus:
+        arguments: [ !tagged spalopia.command_handler ]

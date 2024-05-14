@@ -1,0 +1,6 @@
+services:
+  _instanceof:
+    Spalopia\Reservations\Infrastructure\Http\Controller\:
+      resource: '../Http/Controller/'
+      tags: [ 'controller.service_arguments' ]
+      public: true

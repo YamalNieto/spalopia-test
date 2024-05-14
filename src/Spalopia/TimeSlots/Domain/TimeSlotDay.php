@@ -17,6 +17,11 @@ final readonly class TimeSlotDay
         $this->value = $this->__toString();
     }
 
+    public static function fromString(string $day): self
+    {
+        return new self(DateTimeImmutable::createFromFormat('Y-m-d', $day));
+    }
+
     public function value(): string
     {
         return $this->value;
