@@ -1,4 +1,4 @@
 health-check_get:
-  path: /health-check
+  path: /api/health-check
   controller: Spalopia\Health\Infrastructure\Controller\HealthCheckGetController
   methods:  [GET]

@@ -1,9 +1,9 @@
 spa-services_get:
-  path: /spa-services
+  path: /api/spa-services
   controller: Spalopia\SpaServices\Infrastructure\Http\Controller\GetSpaServicesController
   methods:  [GET]
 
 spa-service-info_get:
-  path: /spa-services/{id}
+  path: /api/spa-services/{id}
   controller: Spalopia\SpaServices\Infrastructure\Http\Controller\GetSpaServiceInfoController
   methods: [GET]

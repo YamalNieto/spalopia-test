@@ -16,7 +16,7 @@ class HealthCheckGetControllerTest extends WebTestCase
 
     public function testReturnGetHealthResponseOk(): void
     {
-        $this->client->request('GET', '/health-check');
+        $this->client->request('GET', '/api/health-check');
 
         self::assertResponseIsSuccessful();
     }
