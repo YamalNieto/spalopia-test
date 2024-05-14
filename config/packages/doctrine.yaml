@@ -5,6 +5,8 @@ doctrine:
       spaservice_id: Spalopia\SpaServices\Infrastructure\Persistence\Doctrine\SpaServiceIdType
       timeslot_id: Spalopia\TimeSlots\Infrastructure\Persistence\Doctrine\TimeSlotIdType
       timeslot_spaservice_id: Spalopia\TimeSlots\Infrastructure\Persistence\Doctrine\TimeSlotSpaServiceIdType
+      reservation_id: Spalopia\Reservations\Infrastructure\Persistence\Doctrine\ReservationIdType
+      reservation_spaservice_id: Spalopia\Reservations\Infrastructure\Persistence\Doctrine\ReservationSpaServiceIdType
 
     # IMPORTANT: You MUST configure your server version,
     # either here or in the DATABASE_URL env var (see .env file)
@@ -24,6 +26,11 @@ doctrine:
         type: xml
         dir: '%kernel.project_dir%/src/Spalopia/TimeSlots/Infrastructure/Persistence/Doctrine'
         prefix: 'Spalopia\TimeSlots\Domain'
+      Spalopia\Reservations\Domain:
+        is_bundle: false
+        type: xml
+        dir: '%kernel.project_dir%/src/Spalopia/Reservations/Infrastructure/Persistence/Doctrine'
+        prefix: 'Spalopia\Reservations\Domain'
 
 when@test:
   doctrine:
